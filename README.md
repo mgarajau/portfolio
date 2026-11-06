@@ -59,6 +59,14 @@ npm install
 npm run dev
 ```
 
+## 🚀 Como publicar uma atualização
+
+```bash
+npm run deploy
+```
+
+Esse comando gera a versão final (`npm run build`) e envia a pasta `dist` para o branch `gh-pages`, que é o que o GitHub Pages publica. Em um ou dois minutos o site é atualizado.
+
 ## 👤 Autor
 
 **Matheus Garajau** · [LinkedIn](https://www.linkedin.com/in/matheus-garajau/) · [GitHub](https://github.com/mgarajau)
