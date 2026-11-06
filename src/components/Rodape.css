@@ -1,0 +1,32 @@
+.rodape {
+  border-top: 1px solid var(--cor-borda);
+  padding: 32px 0;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+/* Texto à esquerda, links à direita */
+.rodape-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.rodape-links {
+  display: flex;
+  gap: 24px;
+}
+
+.rodape-links a:hover {
+  color: var(--cor-destaque);
+}
+
+/* No celular, tudo empilhado e centralizado */
+@media (max-width: 600px) {
+  .rodape-conteudo {
+    flex-direction: column;
+    text-align: center;
+  }
+}

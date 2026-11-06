@@ -1,0 +1,38 @@
+/* Caixa com fundo verde-claro e texto centralizado:
+   é a "chamada para ação" final da página */
+.contato-caixa {
+  background-color: var(--cor-destaque-clara);
+  border-radius: 20px;
+  padding: 64px 32px;
+  text-align: center;
+}
+
+/* O título padrão de seção tem margem grande embaixo; aqui o texto vem logo depois */
+.contato-titulo {
+  margin-bottom: 16px;
+}
+
+.contato-texto {
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+  max-width: 560px;
+  margin: 0 auto 32px; /* "auto" nas laterais centraliza o bloco */
+}
+
+.contato-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* O botão secundário tem fundo transparente; na caixa verde ele ganha fundo branco */
+.contato-caixa .botao-secundario {
+  background-color: var(--cor-superficie);
+}
+
+@media (max-width: 600px) {
+  .contato-caixa {
+    padding: 48px 20px;
+  }
+}

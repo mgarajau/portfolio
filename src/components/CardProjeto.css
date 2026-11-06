@@ -1,0 +1,86 @@
+/* O card é uma coluna: imagem em cima, texto embaixo */
+.card-projeto {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden; /* faz a imagem respeitar as bordas arredondadas */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Ao passar o mouse, o card "sobe" um pouco e ganha sombra */
+.card-projeto:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra);
+}
+
+/* aspect-ratio: todas as imagens ficam com a mesma proporção (16:10),
+   mesmo que os prints tenham tamanhos diferentes */
+.card-projeto-imagem {
+  aspect-ratio: 16 / 10;
+  background-color: var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.card-projeto-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top; /* mostra a parte de cima do site */
+}
+
+/* flex: 1 faz o corpo ocupar o espaço que sobrar,
+   assim os links ficam sempre alinhados no rodapé de todos os cards */
+.card-projeto-corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.card-projeto-corpo h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.card-projeto-corpo p {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.card-projeto-tecnologias {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.card-projeto-tecnologias li {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: var(--cor-destaque-clara);
+  color: var(--cor-destaque-escura);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.card-projeto-links {
+  margin-top: auto; /* empurra os links para o fim do card */
+  display: flex;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.card-projeto-links a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--cor-destaque);
+}
+
+.card-projeto-links a:hover {
+  text-decoration: underline;
+}

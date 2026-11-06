@@ -1,0 +1,90 @@
+/* Duas colunas: o texto ocupa mais espaço (1.4fr) que a linha do tempo (1fr) */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.sobre-paragrafo {
+  color: var(--cor-texto-suave);
+  font-size: 1.075rem;
+  margin-bottom: 16px;
+}
+
+.sobre-subtitulo {
+  font-size: 1rem;
+  margin: 32px 0 12px;
+}
+
+/* Lista de tecnologias em formato de "etiquetas" lado a lado */
+.sobre-tecnologias {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sobre-tecnologias li {
+  padding: 6px 14px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  background-color: var(--cor-superficie);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* LINHA DO TEMPO
+   Uma linha vertical (border-left) com uma bolinha em cada item (::before) */
+.trajetoria {
+  list-style: none;
+  border-left: 2px solid var(--cor-borda);
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.trajetoria-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trajetoria-item::before {
+  content: '';
+  position: absolute;
+  left: -36px; /* recua até ficar em cima da linha vertical */
+  top: 3px; /* centraliza a bolinha com a primeira linha (FORMAÇÃO/EXPERIÊNCIA) */
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--cor-fundo);
+  border: 3px solid var(--cor-destaque);
+}
+
+.trajetoria-tipo {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cor-destaque);
+}
+
+.trajetoria-titulo {
+  font-size: 1.05rem;
+}
+
+.trajetoria-detalhe {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+/* Tablet e celular: uma coluna só, linha do tempo embaixo do texto */
+@media (max-width: 860px) {
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

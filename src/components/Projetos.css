@@ -1,0 +1,11 @@
+/* auto-fill + minmax: o navegador coloca quantos cards couberem por linha
+   (3 no computador, 2 no tablet, 1 no celular), sem precisar de media query */
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.projetos-ver-mais {
+  margin-top: 40px;
+}

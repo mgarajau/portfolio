@@ -1,0 +1,159 @@
+/* ==========================================================
+   ESTILOS GLOBAIS
+   Aqui ficam as regras que valem para o site inteiro.
+   ========================================================== */
+
+/* 1. Variáveis: cores, fontes e medidas usadas em todo o site.
+   Mudou aqui, muda no site todo. */
+:root {
+  --cor-fundo: #f7f8f7;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1a1f1c;
+  --cor-texto-suave: #5b665f;
+  --cor-borda: #e2e7e3;
+  --cor-destaque: #2f7d4f;       /* verde: a única cor de destaque */
+  --cor-destaque-escura: #24613d;
+  --cor-destaque-clara: #e6f2ea;
+
+  --fonte: 'Inter', system-ui, sans-serif;
+
+  --largura-maxima: 1100px;
+  --raio: 12px;
+  --sombra: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* 2. Reset: tira margens padrão do navegador e faz padding/borda
+   entrarem na conta da largura dos elementos. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* rolagem suave ao clicar nos links do menu */
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Acessibilidade: quem navega pelo teclado (Tab) vê um contorno verde
+   no link ou botão selecionado. :focus-visible não aparece no clique do mouse. */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* O cabeçalho fixo tem 68px. Sem isto, ao clicar em "Projetos" no menu,
+   o título da seção ficaria escondido atrás do cabeçalho. */
+section[id] {
+  scroll-margin-top: 68px;
+}
+
+/* Respeita quem configurou o sistema para reduzir animações */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+/* 3. Container: centraliza o conteúdo e limita a largura.
+   É isso que deixa tudo alinhado na mesma margem. */
+.container {
+  width: 100%;
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 4. Seções: todas usam o mesmo espaçamento e o mesmo estilo de título.
+   É isso que dá "ritmo" à página e deixa tudo com cara de um site só. */
+.secao {
+  padding: 96px 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.secao-etiqueta {
+  color: var(--cor-destaque);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.secao-titulo {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 860px) {
+  .secao {
+    padding: 64px 0;
+  }
+
+  .secao-titulo {
+    margin-bottom: 32px;
+  }
+}
+
+/* 5. Botões reutilizáveis */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.botao-principal {
+  background-color: var(--cor-destaque);
+  color: #fff;
+  border: 2px solid var(--cor-destaque);
+}
+
+.botao-principal:hover {
+  background-color: var(--cor-destaque-escura);
+  border-color: var(--cor-destaque-escura);
+}
+
+.botao-secundario {
+  background-color: transparent;
+  color: var(--cor-texto);
+  border: 2px solid var(--cor-borda);
+}
+
+.botao-secundario:hover {
+  border-color: var(--cor-destaque);
+  color: var(--cor-destaque);
+}
