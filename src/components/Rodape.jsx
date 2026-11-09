@@ -4,6 +4,7 @@ import './Rodape.css'
 function Rodape() {
   // new Date().getFullYear() pega o ano atual: o rodapé nunca fica desatualizado
   const anoAtual = new Date().getFullYear()
+  
 
   return (
     <footer className="rodape">

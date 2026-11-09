@@ -1,6 +1,3 @@
-// Todas as informações pessoais ficam aqui, separadas dos componentes.
-// Para atualizar o site (novo cargo, novo link...), basta editar este arquivo.
-
 export const perfil = {
   nome: 'Matheus Garajau',
   cargo: 'Desenvolvedor de Software',
@@ -12,8 +9,6 @@ export const perfil = {
     github: 'https://github.com/mgarajau',
     linkedin: 'https://www.linkedin.com/in/matheus-garajau/',
   },
-  // Se quiser mostrar um e-mail na seção Contato, coloque aqui (ex.: 'seuemail@gmail.com').
-  // Deixando vazio, o botão de e-mail simplesmente não aparece.
   email: 'matheusgarajaucontato@gmail.com',
 }
 
@@ -29,7 +24,6 @@ export const sobre = [
     'estagiário ou em outra posição de entrada.',
 ]
 
-// Linha do tempo com formação e experiência (do mais recente para o mais antigo).
 export const trajetoria = [
   {
     tipo: 'Formação',
