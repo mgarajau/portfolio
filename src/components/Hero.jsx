@@ -1,7 +1,7 @@
 import { perfil } from '../data/perfil'
 import './Hero.css'
 
-// "Hero" é o nome que se dá à primeira seção de um site: a que aparece logo ao abrir.
+
 function Hero() {
   return (
     <section id="inicio" className="hero">

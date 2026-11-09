@@ -57,7 +57,7 @@ export const tecnologias = [
   'React',
   'HTML5',
   'CSS3',
-  'Vite',
+  'Node.js',
   'React Router',
   'Git',
   'GitHub',

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { perfil } from '../data/perfil'
 import './Header.css'
 
-// Itens do menu. Cada "href" aponta para o id de uma seção da página (ex.: #sobre).
+
 const itensMenu = [
   { texto: 'Sobre', href: '#sobre' },
   { texto: 'Projetos', href: '#projetos' },
@@ -10,7 +10,7 @@ const itensMenu = [
 ]
 
 function Header() {
-  // Estado que controla se o menu do celular está aberto ou fechado.
+  
   const [menuAberto, setMenuAberto] = useState(false)
 
   return (
