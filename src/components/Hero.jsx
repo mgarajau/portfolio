@@ -1,5 +1,6 @@
 import { perfil } from '../data/perfil'
 import { projetos } from '../data/projetos'
+import Logo from './Logo'
 import './Hero.css'
 
 function Hero() {
@@ -78,9 +79,9 @@ function Hero() {
             </pre>
           </div>
 
-          {/* Selo rosa girando, com o texto em círculo */}
+          {/* Selo rosa com o texto girando em volta e a logo parada no centro */}
           <div className="hero-selo">
-            <svg viewBox="0 0 120 120">
+            <svg className="hero-selo-texto" viewBox="0 0 120 120">
               <defs>
                 <path id="circulo-selo" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
               </defs>
@@ -91,7 +92,7 @@ function Hero() {
                 </textPath>
               </text>
             </svg>
-            <span className="hero-selo-centro">✦</span>
+            <Logo className="hero-selo-logo" />
           </div>
         </div>
       </div>

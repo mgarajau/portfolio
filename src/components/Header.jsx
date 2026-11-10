@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { perfil } from '../data/perfil'
+import Logo from './Logo'
 import './Header.css'
 
 const itensMenu = [
@@ -11,19 +12,11 @@ const itensMenu = [
 function Header() {
   const [menuAberto, setMenuAberto] = useState(false)
 
-  // Iniciais do nome para o "selo" do logo: "Matheus Garajau" -> "MG"
-  const iniciais = perfil.nome
-    .split(' ')
-    .map((parte) => parte[0])
-    .join('')
-
   return (
     <header className="header">
       <div className="container header-conteudo">
         <a href="#inicio" className="header-logo">
-          <span className="header-logo-selo" aria-hidden="true">
-            {iniciais}
-          </span>
+          <Logo className="header-logo-selo" />
           {perfil.nome}
         </a>
 

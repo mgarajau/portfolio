@@ -197,7 +197,7 @@
   place-items: center;
 }
 
-.hero-selo svg {
+.hero-selo-texto {
   position: absolute;
   inset: 0;
   animation: girar 18s linear infinite;
@@ -212,9 +212,12 @@
   fill: var(--cor-texto);
 }
 
-.hero-selo-centro {
-  font-size: 1.6rem;
-  color: var(--cor-azul);
+/* A logo fica no centro do selo e não gira (só o texto gira) */
+.hero-selo-logo {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  filter: drop-shadow(2px 2px 0 var(--cor-texto));
 }
 
 @keyframes girar {
