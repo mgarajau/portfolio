@@ -8,9 +8,10 @@ Meu portfólio pessoal, desenvolvido do zero com **React** e **Vite**, reunindo 
 
 ## ✨ Seções
 
-- **Início**: apresentação e chamada para os projetos
-- **Sobre**: minha história, tecnologias e linha do tempo de formação e experiência
-- **Projetos**: cards com print, descrição, tecnologias e links para ver online e ver o código
+- **Início**: apresentação, cartão de perfil em formato de código e faixa animada com as tecnologias
+- **Sobre**: minha história e linha do tempo de formação e experiência
+- **Habilidades**: tecnologias organizadas em grupos (front-end, back-end e ferramentas)
+- **Projetos**: cada projeto com print, descrição, tecnologias e links para ver online e ver o código
 - **Contato**: LinkedIn, e-mail e GitHub
 
 ## 🧠 O que pratiquei
@@ -21,7 +22,8 @@ Meu portfólio pessoal, desenvolvido do zero com **React** e **Vite**, reunindo 
 - **Estado** com `useState` no menu do celular
 - **Dados separados do visual**: textos e projetos ficam em `src/data/`, sem precisar mexer nos componentes
 - **Layout responsivo** com CSS Grid (`auto-fill` + `minmax`), Flexbox e Media Queries
-- **Variáveis CSS** para manter cores e espaçamentos consistentes
+- **Variáveis CSS** para manter cores e espaçamentos consistentes (azul, bege e rosa)
+- **Logo em SVG** como componente React, reaproveitada no cabeçalho, no topo e no ícone da aba
 - **Acessibilidade**: HTML semântico, `aria-label`, foco visível para navegação pelo teclado e respeito a `prefers-reduced-motion`
 
 ## 🛠️ Tecnologias
@@ -35,9 +37,10 @@ Meu portfólio pessoal, desenvolvido do zero com **React** e **Vite**, reunindo 
 
 ```
 src/
-├── components/     # Header, Hero, Sobre, Projetos, CardProjeto, Contato e Rodape
+├── components/     # Header, Logo, Hero, FaixaTecnologias, Sobre, Habilidades,
+│                   # Projetos, CardProjeto, Contato e Rodape
 ├── data/
-│   ├── perfil.js   # nome, resumo, links, trajetória e tecnologias
+│   ├── perfil.js   # nome, resumo, links, trajetória, tecnologias e habilidades
 │   └── projetos.js # lista de projetos exibidos
 ├── App.jsx         # monta a página juntando os componentes
 ├── index.css       # estilos globais e variáveis de cor
@@ -50,7 +53,7 @@ public/
 
 - **Mudar textos ou links:** edite `src/data/perfil.js`
 - **Adicionar um projeto:** coloque o print em `public/projetos/` e acrescente um objeto em `src/data/projetos.js`
-- **Mudar a cor do site:** altere `--cor-destaque` em `src/index.css`
+- **Mudar as cores do site:** altere `--cor-azul`, `--cor-rosa` e `--cor-fundo` em `src/index.css`
 
 ## ▶️ Como rodar localmente
 
