@@ -13,7 +13,7 @@ function Contato() {
           </h2>
           <p className="contato-texto">
             Estou em busca da minha primeira oportunidade em tecnologia. Tenho interesse em vagas
-            de desenvolvedor júnior, estágio e outras posições de entrada, presenciais em{' '}
+            de desenvolvedor júnior e outras posições de entrada, presenciais em{' '}
             {perfil.local}, híbridas ou remotas.
           </p>
 

@@ -88,7 +88,7 @@ function Hero() {
               {/* textLength estica o texto para dar a volta completa no círculo */}
               <text>
                 <textPath href="#circulo-selo" textLength="272" lengthAdjust="spacing">
-                  disponível ✦ júnior ✦ estágio ✦
+                  disponível ✦ júnior ✦ front-end ✦
                 </textPath>
               </text>
             </svg>
