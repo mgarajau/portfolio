@@ -1,11 +1,34 @@
-/* auto-fill + minmax: o navegador coloca quantos cards couberem por linha
-   (3 no computador, 2 no tablet, 1 no celular), sem precisar de media query */
-.projetos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+/* Título à esquerda e botão "Ver todos" à direita, na mesma linha */
+.projetos-cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
   gap: 24px;
+  margin-bottom: 56px;
+}
+
+.projetos-cabecalho .secao-titulo {
+  margin-bottom: 0;
 }
 
 .projetos-ver-mais {
-  margin-top: 40px;
+  flex-shrink: 0;
+}
+
+/* Um projeto embaixo do outro, com bastante espaço entre eles */
+.projetos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+
+@media (max-width: 860px) {
+  .projetos-cabecalho {
+    margin-bottom: 40px;
+  }
+
+  .projetos-lista {
+    gap: 64px;
+  }
 }

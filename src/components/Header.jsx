@@ -2,28 +2,35 @@ import { useState } from 'react'
 import { perfil } from '../data/perfil'
 import './Header.css'
 
-
 const itensMenu = [
   { texto: 'Sobre', href: '#sobre' },
+  { texto: 'Habilidades', href: '#habilidades' },
   { texto: 'Projetos', href: '#projetos' },
-  { texto: 'Contato', href: '#contato' },
 ]
 
 function Header() {
-  
   const [menuAberto, setMenuAberto] = useState(false)
+
+  // Iniciais do nome para o "selo" do logo: "Matheus Garajau" -> "MG"
+  const iniciais = perfil.nome
+    .split(' ')
+    .map((parte) => parte[0])
+    .join('')
 
   return (
     <header className="header">
       <div className="container header-conteudo">
         <a href="#inicio" className="header-logo">
+          <span className="header-logo-selo" aria-hidden="true">
+            {iniciais}
+          </span>
           {perfil.nome}
         </a>
 
         {/* Botão "hambúrguer": só aparece no celular (controlado pelo CSS) */}
         <button
           type="button"
-          className="header-botao-menu"
+          className={`header-botao-menu ${menuAberto ? 'aberto' : ''}`}
           onClick={() => setMenuAberto(!menuAberto)}
           aria-label={menuAberto ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={menuAberto}
@@ -45,6 +52,11 @@ function Header() {
               {item.texto}
             </a>
           ))}
+
+          {/* "Contato" ganha destaque de botão */}
+          <a href="#contato" className="header-cta" onClick={() => setMenuAberto(false)}>
+            Contato
+          </a>
         </nav>
       </div>
     </header>

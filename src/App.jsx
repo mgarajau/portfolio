@@ -1,6 +1,8 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
+import FaixaTecnologias from './components/FaixaTecnologias'
 import Sobre from './components/Sobre'
+import Habilidades from './components/Habilidades'
 import Projetos from './components/Projetos'
 import Contato from './components/Contato'
 import Rodape from './components/Rodape'
@@ -12,7 +14,9 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <FaixaTecnologias />
         <Sobre />
+        <Habilidades />
         <Projetos />
         <Contato />
       </main>

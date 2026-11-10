@@ -1,8 +1,8 @@
 import './CardProjeto.css'
 
-// Componente de UM card. Ele recebe os dados de um projeto por "props"
+// Componente de UM projeto. Ele recebe os dados por "props"
 // e não sabe nada dos outros projetos: só desenha o que recebeu.
-function CardProjeto({ titulo, descricao, imagem, tecnologias, linkOnline, linkCodigo }) {
+function CardProjeto({ numero, titulo, descricao, imagem, tecnologias, linkOnline, linkCodigo }) {
   return (
     <article className="card-projeto">
       {/* Clicar na imagem também abre o projeto online.
@@ -21,20 +21,22 @@ function CardProjeto({ titulo, descricao, imagem, tecnologias, linkOnline, linkC
       </a>
 
       <div className="card-projeto-corpo">
+        {/* padStart deixa o número com 2 dígitos: 1 -> "01" */}
+        <span className="card-projeto-numero">{String(numero).padStart(2, '0')}</span>
         <h3>{titulo}</h3>
         <p>{descricao}</p>
 
-        <ul className="card-projeto-tecnologias">
+        <ul className="chips">
           {tecnologias.map((tecnologia) => (
             <li key={tecnologia}>{tecnologia}</li>
           ))}
         </ul>
 
         <div className="card-projeto-links">
-          <a href={linkOnline} target="_blank" rel="noreferrer">
+          <a href={linkOnline} target="_blank" rel="noreferrer" className="botao botao-principal">
             Ver online <span aria-hidden="true">↗</span>
           </a>
-          <a href={linkCodigo} target="_blank" rel="noreferrer">
+          <a href={linkCodigo} target="_blank" rel="noreferrer" className="card-projeto-codigo">
             Código <span aria-hidden="true">↗</span>
           </a>
         </div>

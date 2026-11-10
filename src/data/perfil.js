@@ -45,7 +45,7 @@ export const trajetoria = [
   },
 ]
 
-// Tecnologias que aparecem como "etiquetas" na seção Sobre.
+// Tecnologias que passam na faixa animada logo abaixo do topo.
 export const tecnologias = [
   'JavaScript',
   'React',
@@ -57,4 +57,23 @@ export const tecnologias = [
   'GitHub',
   'Responsividade',
   'APIs REST',
+]
+
+// Seção "Habilidades": as mesmas tecnologias, organizadas em grupos.
+export const habilidades = [
+  {
+    grupo: 'Front-end',
+    descricao: 'Interfaces organizadas em componentes e que funcionam bem em qualquer tela.',
+    itens: ['JavaScript', 'React', 'React Router', 'HTML5', 'CSS3', 'Responsividade'],
+  },
+  {
+    grupo: 'Back-end e dados',
+    descricao: 'Consumo de APIs e primeiros passos no servidor com JavaScript.',
+    itens: ['Node.js', 'APIs REST'],
+  },
+  {
+    grupo: 'Ferramentas',
+    descricao: 'Versionamento do código e publicação dos projetos.',
+    itens: ['Git', 'GitHub'],
+  },
 ]

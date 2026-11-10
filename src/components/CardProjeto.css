@@ -1,86 +1,103 @@
-/* O card é uma coluna: imagem em cima, texto embaixo */
+/* Imagem de um lado, texto do outro */
 .card-projeto {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--cor-superficie);
-  border: 1px solid var(--cor-borda);
-  border-radius: var(--raio);
-  overflow: hidden; /* faz a imagem respeitar as bordas arredondadas */
-  transition: transform 0.2s, box-shadow 0.2s;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 56px;
 }
 
-/* Ao passar o mouse, o card "sobe" um pouco e ganha sombra */
-.card-projeto:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--sombra);
+/* Projetos em posição par invertem o lado da imagem (zigue-zague) */
+.card-projeto:nth-child(even) .card-projeto-imagem {
+  order: 2;
 }
 
-/* aspect-ratio: todas as imagens ficam com a mesma proporção (16:10),
-   mesmo que os prints tenham tamanhos diferentes */
+/* Moldura da imagem com borda escura e sombra rosa deslocada */
 .card-projeto-imagem {
+  display: block;
   aspect-ratio: 16 / 10;
-  background-color: var(--cor-borda);
-  border-bottom: 1px solid var(--cor-borda);
+  border: 2px solid var(--cor-texto);
+  border-radius: var(--raio);
+  overflow: hidden;
+  background-color: var(--cor-bege-escuro);
+  box-shadow: var(--sombra-rosa);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card-projeto-imagem img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top; /* mostra a parte de cima do site */
+  object-position: top;
+  transition: transform 0.5s;
 }
 
-/* flex: 1 faz o corpo ocupar o espaço que sobrar,
-   assim os links ficam sempre alinhados no rodapé de todos os cards */
+.card-projeto-imagem:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 14px 14px 0 var(--cor-rosa);
+}
+
+.card-projeto-imagem:hover img {
+  transform: scale(1.04);
+}
+
 .card-projeto-corpo {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Número grande em azul, contornado */
+.card-projeto-numero {
+  font-family: var(--fonte-titulo);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--cor-azul);
 }
 
 .card-projeto-corpo h3 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
 }
 
 .card-projeto-corpo p {
   color: var(--cor-texto-suave);
-  font-size: 0.95rem;
-  margin-bottom: 16px;
-}
-
-.card-projeto-tecnologias {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 20px;
-}
-
-.card-projeto-tecnologias li {
-  padding: 4px 10px;
-  border-radius: 6px;
-  background-color: var(--cor-destaque-clara);
-  color: var(--cor-destaque-escura);
-  font-size: 0.8rem;
-  font-weight: 600;
 }
 
 .card-projeto-links {
-  margin-top: auto; /* empurra os links para o fim do card */
   display: flex;
-  gap: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--cor-borda);
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 8px;
 }
 
-.card-projeto-links a {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--cor-destaque);
+.card-projeto-codigo {
+  font-weight: 700;
+  border-bottom: 2px solid var(--cor-rosa);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
 }
 
-.card-projeto-links a:hover {
-  text-decoration: underline;
+.card-projeto-codigo:hover {
+  color: var(--cor-azul);
+  border-color: var(--cor-azul);
+}
+
+/* Tablet e celular: imagem em cima, texto embaixo, sem zigue-zague */
+@media (max-width: 860px) {
+  .card-projeto {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .card-projeto:nth-child(even) .card-projeto-imagem {
+    order: 0;
+  }
+
+  .card-projeto-numero {
+    font-size: 2.6rem;
+  }
 }

@@ -1,38 +1,122 @@
-/* Caixa com fundo verde-claro e texto centralizado:
-   é a "chamada para ação" final da página */
-.contato-caixa {
-  background-color: var(--cor-destaque-clara);
-  border-radius: 20px;
-  padding: 64px 32px;
-  text-align: center;
+.contato {
+  padding-top: 0;
 }
 
-/* O título padrão de seção tem margem grande embaixo; aqui o texto vem logo depois */
+.contato-caixa {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 64px;
+  border-radius: 28px;
+  border: 2px solid var(--cor-texto);
+  background-color: var(--cor-azul);
+  color: #fff;
+  box-shadow: 12px 12px 0 var(--cor-rosa);
+}
+
+/* Círculo grande e suave no fundo da caixa, só decoração */
+.contato-caixa::before {
+  content: '';
+  position: absolute;
+  right: -120px;
+  top: -120px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background-color: var(--cor-azul-escuro);
+  opacity: 0.6;
+}
+
+/* Tudo que é conteúdo fica acima do círculo */
+.contato-caixa > * {
+  position: relative;
+}
+
+.contato-etiqueta {
+  color: var(--cor-rosa-suave);
+}
+
+.contato-etiqueta::before {
+  color: var(--cor-rosa);
+}
+
 .contato-titulo {
-  margin-bottom: 16px;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+/* "conversar?" em branco com o marca-texto rosa forte por baixo
+   (rosa forte em cima do azul ficaria difícil de ler) */
+.contato-titulo em {
+  font-style: normal;
+  background-image: linear-gradient(var(--cor-rosa), var(--cor-rosa));
+  background-size: 100% 0.18em;
+  background-position: 0 92%;
+  background-repeat: no-repeat;
 }
 
 .contato-texto {
-  color: var(--cor-texto-suave);
+  max-width: 580px;
   font-size: 1.1rem;
-  max-width: 560px;
-  margin: 0 auto 32px; /* "auto" nas laterais centraliza o bloco */
+  color: #dfe4fb;
+  margin-bottom: 40px;
 }
 
 .contato-botoes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 12px;
 }
 
-/* O botão secundário tem fundo transparente; na caixa verde ele ganha fundo branco */
-.contato-caixa .botao-secundario {
-  background-color: var(--cor-superficie);
+/* Botão rosa com texto escuro */
+.contato-botao-rosa {
+  background-color: var(--cor-rosa);
+  color: var(--cor-texto);
 }
 
-@media (max-width: 600px) {
+/* Botões com contorno claro */
+.contato-botao-claro {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.contato-botao-claro:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* Na caixa azul, a sombra do hover fica escura para aparecer melhor */
+.contato-botoes .botao:hover {
+  box-shadow: 4px 4px 0 var(--cor-texto);
+}
+
+.contato-estrela {
+  position: absolute !important;
+  color: var(--cor-rosa);
+  line-height: 1;
+}
+
+.contato-estrela-1 {
+  right: 72px;
+  bottom: 56px;
+  font-size: 4rem;
+}
+
+.contato-estrela-2 {
+  right: 160px;
+  bottom: 140px;
+  font-size: 1.6rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 860px) {
   .contato-caixa {
-    padding: 48px 20px;
+    padding: 56px 28px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 0 var(--cor-rosa);
+  }
+
+  .contato-estrela {
+    display: none;
   }
 }

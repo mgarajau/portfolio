@@ -1,0 +1,59 @@
+.faixa {
+  background-color: var(--cor-azul);
+  color: #fff;
+  border-block: 2px solid var(--cor-texto);
+  overflow: hidden;
+  /* Leve inclinação para dar movimento à página */
+  transform: rotate(-1.2deg);
+  margin: 0 -16px;
+}
+
+.faixa-trilho {
+  display: flex;
+  width: max-content;
+  animation: deslizar 32s linear infinite;
+}
+
+/* Passar o mouse pausa a faixa */
+.faixa:hover .faixa-trilho {
+  animation-play-state: paused;
+}
+
+.faixa-lista {
+  display: flex;
+}
+
+.faixa-lista li {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 0 18px 28px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* Estrelinha rosa entre um item e outro */
+.faixa-lista li::after {
+  content: '✦';
+  font-style: normal;
+  font-size: 1rem;
+  color: var(--cor-rosa);
+}
+
+/* Move a faixa exatamente metade (uma cópia da lista) */
+@keyframes deslizar {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 600px) {
+  .faixa-lista li {
+    font-size: 1.15rem;
+    padding: 14px 0 14px 20px;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,46 @@
+/* Fundo bege um pouco mais escuro para separar esta seção das vizinhas */
+.habilidades {
+  background-color: var(--cor-bege-escuro);
+}
+
+/* auto-fit: cabem quantas colunas de no mínimo 260px couberem na tela */
+.habilidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.habilidade-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  background-color: var(--cor-superficie);
+  border: 2px solid var(--cor-texto);
+  border-radius: var(--raio);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* O card "levanta" e mostra a sombra rosa ao passar o mouse */
+.habilidade-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--sombra-rosa);
+}
+
+.habilidade-numero {
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--cor-rosa-forte);
+  font-weight: 500;
+}
+
+.habilidade-card h3 {
+  font-size: 1.5rem;
+  color: var(--cor-azul);
+}
+
+.habilidade-card p {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}

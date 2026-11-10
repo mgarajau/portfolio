@@ -4,22 +4,34 @@
    ========================================================== */
 
 /* 1. Variáveis: cores, fontes e medidas usadas em todo o site.
-   Mudou aqui, muda no site todo. */
+   Mudou aqui, muda no site todo.
+   Paleta: bege claro de fundo, azul forte como cor principal
+   e rosa nos detalhes. */
 :root {
-  --cor-fundo: #f7f8f7;
-  --cor-superficie: #ffffff;
-  --cor-texto: #1a1f1c;
-  --cor-texto-suave: #5b665f;
-  --cor-borda: #e2e7e3;
-  --cor-destaque: #2f7d4f;       /* verde: a única cor de destaque */
-  --cor-destaque-escura: #24613d;
-  --cor-destaque-clara: #e6f2ea;
+  --cor-fundo: #f5eee2;          /* bege claro */
+  --cor-superficie: #fbf7f0;     /* bege quase branco, para cards */
+  --cor-bege-escuro: #ebdfca;
+  --cor-texto: #141a3d;          /* azul-marinho, quase preto */
+  --cor-texto-suave: #4d5373;
+  --cor-borda: #ddd0b9;
 
-  --fonte: 'Inter', system-ui, sans-serif;
+  --cor-azul: #1e3ad4;           /* azul forte: a cor principal */
+  --cor-azul-escuro: #13268f;
+  --cor-azul-claro: #dfe4fb;
 
-  --largura-maxima: 1100px;
-  --raio: 12px;
-  --sombra: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --cor-rosa: #ff2a5f;           /* rosa bem forte, quase vermelho */
+  --cor-rosa-forte: #e0103f;     /* versão mais escura, para detalhes pequenos no bege */
+  --cor-rosa-claro: #ffe0e7;     /* fundo rosado bem suave */
+  --cor-rosa-suave: #ffb3c4;     /* rosa claro para TEXTO em cima do azul (o forte some no azul) */
+
+  --fonte: 'DM Sans', system-ui, sans-serif;
+  --fonte-titulo: 'Space Grotesk', system-ui, sans-serif; /* limpa e moderna */
+  --fonte-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --largura-maxima: 1160px;
+  --altura-header: 72px;
+  --raio: 16px;
+  --sombra-rosa: 8px 8px 0 var(--cor-rosa); /* sombra "deslocada", sem desfoque */
 }
 
 /* 2. Reset: tira margens padrão do navegador e faz padding/borda
@@ -40,8 +52,22 @@ body {
   font-family: var(--fonte);
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* A faixa inclinada passa um pouco das bordas da tela: isto corta o excesso
+   e evita a rolagem para os lados */
+main {
+  overflow-x: clip;
 }
 
 img {
@@ -54,19 +80,30 @@ a {
   text-decoration: none;
 }
 
-/* Acessibilidade: quem navega pelo teclado (Tab) vê um contorno verde
+ul,
+ol {
+  list-style: none;
+}
+
+/* Seleção de texto em rosa */
+::selection {
+  background-color: var(--cor-rosa);
+  color: var(--cor-texto);
+}
+
+/* Acessibilidade: quem navega pelo teclado (Tab) vê um contorno
    no link ou botão selecionado. :focus-visible não aparece no clique do mouse. */
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--cor-destaque);
+  outline: 3px solid var(--cor-rosa-forte);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
-/* O cabeçalho fixo tem 68px. Sem isto, ao clicar em "Projetos" no menu,
-   o título da seção ficaria escondido atrás do cabeçalho. */
+/* O cabeçalho é fixo. Sem isto, ao clicar em "Projetos" no menu,
+   o título da seção ficaria escondido atrás dele. */
 section[id] {
-  scroll-margin-top: 68px;
+  scroll-margin-top: var(--altura-header);
 }
 
 /* Respeita quem configurou o sistema para reduzir animações */
@@ -79,11 +116,11 @@ section[id] {
   *::before,
   *::after {
     transition: none !important;
+    animation: none !important;
   }
 }
 
-/* 3. Container: centraliza o conteúdo e limita a largura.
-   É isso que deixa tudo alinhado na mesma margem. */
+/* 3. Container: centraliza o conteúdo e limita a largura. */
 .container {
   width: 100%;
   max-width: var(--largura-maxima);
@@ -91,36 +128,51 @@ section[id] {
   padding: 0 24px;
 }
 
-/* 4. Seções: todas usam o mesmo espaçamento e o mesmo estilo de título.
-   É isso que dá "ritmo" à página e deixa tudo com cara de um site só. */
+/* 4. Seções: todas usam o mesmo espaçamento e o mesmo estilo de título. */
 .secao {
-  padding: 96px 0;
-  border-top: 1px solid var(--cor-borda);
+  padding: 112px 0;
 }
 
+/* Etiqueta pequena acima do título, em fonte de código, com uma estrelinha rosa */
 .secao-etiqueta {
-  color: var(--cor-destaque);
-  font-weight: 600;
-  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--cor-azul);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.secao-etiqueta::before {
+  content: '✦';
+  color: var(--cor-rosa-forte);
+  font-size: 1rem;
 }
 
 .secao-titulo {
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 48px;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.1;
+  max-width: 720px;
+  margin-bottom: 56px;
+}
+
+/* Palavra em itálico azul dentro dos títulos */
+.secao-titulo em {
+  font-style: normal;
+  color: var(--cor-azul);
 }
 
 @media (max-width: 860px) {
   .secao {
-    padding: 64px 0;
+    padding: 72px 0;
   }
 
   .secao-titulo {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 }
 
@@ -129,31 +181,48 @@ section[id] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 700;
   font-size: 1rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  border: 2px solid var(--cor-texto);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, color 0.2s;
+}
+
+/* Ao passar o mouse, o botão "levanta" e aparece a sombra rosa */
+.botao:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 4px 4px 0 var(--cor-rosa);
 }
 
 .botao-principal {
-  background-color: var(--cor-destaque);
+  background-color: var(--cor-azul);
+  border-color: var(--cor-azul);
   color: #fff;
-  border: 2px solid var(--cor-destaque);
-}
-
-.botao-principal:hover {
-  background-color: var(--cor-destaque-escura);
-  border-color: var(--cor-destaque-escura);
 }
 
 .botao-secundario {
   background-color: transparent;
   color: var(--cor-texto);
-  border: 2px solid var(--cor-borda);
 }
 
 .botao-secundario:hover {
-  border-color: var(--cor-destaque);
-  color: var(--cor-destaque);
+  background-color: var(--cor-superficie);
+}
+
+/* Etiquetas (chips) de tecnologia, usadas em vários lugares */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chips li {
+  font-family: var(--fonte-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background-color: var(--cor-azul-claro);
+  color: var(--cor-azul-escuro);
 }
